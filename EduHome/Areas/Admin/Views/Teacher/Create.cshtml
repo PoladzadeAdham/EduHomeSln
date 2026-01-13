@@ -1,0 +1,37 @@
+﻿@model TeacherCreateVm
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="FullName">Email FullName</label>
+        <input asp-for="FullName" class="form-control" placeholder="Enter FullName">
+        <span class="text-danger" asp-validation-for="FullName"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Profession">Email Profession</label>
+        <input asp-for="Profession" class="form-control" placeholder="Enter Profession">
+        <span class="text-danger" asp-validation-for="Profession"></span>
+    </div>
+   
+    <div class="form-group">
+        <label for="Image">Email Image</label>
+        <input asp-for="Image" class="form-control" placeholder="Enter Image">
+        <span class="text-danger" asp-validation-for="Image"></span>
+    </div>
+    <div class="form-group" style="background-color: white">
+        
+        <select class="form-control" asp-for="CourseId">
+            @foreach(Course course in ViewBag.Courses)
+            {
+                <option value="@course.Id" > @course.Title</option>
+            }
+
+        </select>
+
+        <span class="text-danger" asp-validation-for="CourseId"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
